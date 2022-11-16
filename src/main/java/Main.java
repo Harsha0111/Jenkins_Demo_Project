@@ -5,6 +5,7 @@ public class Main {
     private static Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
+        
         System.out.println("Hello World");
         LOGGER.debug("Helloworld");
     }
