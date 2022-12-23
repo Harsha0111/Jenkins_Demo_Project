@@ -9,10 +9,10 @@ pipeline {
         echo "Hello World"
       }
     }
-    stage('Build code') {
-      steps {
-        sh "mvn clean install"
-      }
+    stage('Build') {
+       steps {
+         sh 'mvn -B -DskipTests clean package'
+       }
     }
   }
 }
