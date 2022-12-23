@@ -5,10 +5,10 @@ pipeline {
     maven "maven"
   }
   stages {
-          stage {
-              steps {
-                  echo "Hello World"
-              }
-          }
-         }
+    stage {
+      steps {
+        echo "Hello World"
+      }
+    }
+  }
 }
