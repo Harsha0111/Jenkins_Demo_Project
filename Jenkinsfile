@@ -1,18 +1,18 @@
 pipeline {
-    agent any
-    tools {
-        maven "maven"
+  agent any
+  tools {
+    maven "maven"
+  }
+  stages {
+    stage('Automatic trigger') {
+      steps {
+        echo "Hello World"
       }
-    stages {
-        stage('Automatic trigger') {
-            steps {
-                echo "Hello World"
-            }
-        }
-        stage('Build code') {
-                    steps {
-                        sh "mvn clean install"
-                    }
-                }
     }
+    stage('Build code') {
+      steps {
+        sh "mvn clean install"
+      }
+    }
+  }
 }
