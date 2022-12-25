@@ -17,13 +17,37 @@ pipeline {
     }
     post {
         success {
-            mail body: 'Success', subject: 'Java Maven Project', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
+            script {
+                if(env.BRANCH_NAME == 'user') {
+                   mail body: 'Success', subject: 'Maven Project - user', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
+                } else if(env.BRANCH_NAME == 'maintainer') {
+                   mail body: 'Success', subject: 'Maven Project - maintainer', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'   
+                } else {
+                   mail body: 'Success', subject: 'Maven Project - master', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
+                } 
+            }
         }
         failure {
-            echo "failure"
+             script {
+                if(env.BRANCH_NAME == 'user') {
+                   mail body: 'Failure', subject: 'Maven Project - user', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
+                } else if(env.BRANCH_NAME == 'maintainer') {
+                   mail body: 'Failure', subject: 'Maven Project - maintainer', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'   
+                } else {
+                   mail body: 'Failure', subject: 'Maven Project - master', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
+                } 
+            }
         }
         aborted {
-            echo "aborted"
+            script {
+                if(env.BRANCH_NAME == 'user') {
+                   mail body: 'Aborted', subject: 'Maven Project - user', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
+                } else if(env.BRANCH_NAME == 'maintainer') {
+                   mail body: 'Aborted', subject: 'Maven Project - maintainer', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'   
+                } else {
+                   mail body: 'Aborted', subject: 'Maven Project - master', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
+                } 
+            }
         }
     }
 }
