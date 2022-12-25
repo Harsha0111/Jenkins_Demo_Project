@@ -4,10 +4,26 @@ pipeline {
         maven "maven"
       }
     stages {
-        stage('Automatic trigger') {
+        stage('Build') {
             steps {
-                echo "Hello World"
+                echo "Build"
             }
+        }
+        satge('Deploy') {
+            steps {
+                echo "Deploy"
+            }
+        }
+    }
+    post {
+        success {
+            echo "success"
+        }
+        failure {
+            echo "failure"
+        }
+        aborted {
+            echo "aborted"
         }
     }
 }
