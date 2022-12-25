@@ -9,7 +9,7 @@ pipeline {
                 echo "Build"
             }
         }
-        satge('Deploy') {
+        stage('Deploy') {
             steps {
                 echo "Deploy"
             }
