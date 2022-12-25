@@ -12,13 +12,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploy"
-                sh 'sleep 15s'
             }
         }
     }
     post {
         success {
-            echo "success"
+            mail body: 'Success', subject: 'Java Maven Project', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
         }
         failure {
             echo "failure"
