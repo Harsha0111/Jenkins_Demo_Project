@@ -10,4 +10,5 @@ public class JenkinsMavenProjectApplication {
 		SpringApplication.run(JenkinsMavenProjectApplication.class, args);
 	}
 
+
 }
