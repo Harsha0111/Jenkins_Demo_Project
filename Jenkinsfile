@@ -14,8 +14,7 @@ pipeline {
             steps {
                 echo "Deploy"
                 script {
-                    sh 'cp /var/lib/jenkins/workspace/Java_Maven_Project_user/target/jenkins-0.0.1.war
- /var/lib/tomcat9/webapps'
+                    sh 'cp /var/lib/jenkins/workspace/Java_Maven_Project_user/target/jenkins-0.0.1.war /var/lib/tomcat9/webapps'
                    if(env.BRANCH_NAME == 'maintainer') {
                         mail body: 'Approval Message for maintainer' + '\n' + "Please visit the console of the build ${BUILD_URL}input to approve or reject.", subject: 'Maven Project - maintainer', to: 'selviharsha@gmail.com', from: 'harshajsharsh@gmail.com'
                         try {
